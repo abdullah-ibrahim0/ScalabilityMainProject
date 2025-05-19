@@ -187,4 +187,57 @@ public class AuthController {
         return ResponseEntity.ok("Password changed successfully.");
     }
 
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(@RequestHeader("Authorization") String token) {
+        SessionService sessionService = SessionService.getInstance();
+        if (token == null || token.isEmpty()) {
+            return ResponseEntity.status(401).body("Token is missing.");
+        }
+        Long userId = sessionService.getUserIdFromToken(token);
+        if (userId == null) {
+            return ResponseEntity.status(401).body("Invalid token.");
+        }
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7); // Remove "Bearer " prefix
+        }
+        sessionService.deleteSession(token);
+        return ResponseEntity.ok("Logged out successfully.");
+    }
+
+    @PutMapping("/change-password")
+    public ResponseEntity<?> changePassword(
+            @RequestHeader("Authorization") String token,
+            @RequestBody Map<String, String> body
+    ) {
+        SessionService sessionService = SessionService.getInstance();
+
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+
+        Long userId = sessionService.getUserIdFromToken(token);
+        if (userId == null) {
+            return ResponseEntity.status(401).body("Unauthorized");
+        }
+
+        User user = userRepository.findByUserId(userId);
+        if (user == null) {
+            return ResponseEntity.status(404).body("User not found.");
+        }
+
+
+        String oldPassword = body.get("oldPassword");
+        String newPassword = body.get("newPassword");
+
+        if (!user.getPassword().equals(oldPassword)) {
+            return ResponseEntity.badRequest().body("Old password is incorrect.");
+        }
+
+        user.setPassword(newPassword);
+        userRepository.save(user);
+
+        return ResponseEntity.ok("Password changed successfully.");
+    }
+
 }
