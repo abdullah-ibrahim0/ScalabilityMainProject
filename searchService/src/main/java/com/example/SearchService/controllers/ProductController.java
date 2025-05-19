@@ -16,13 +16,13 @@ public class ProductController {
      @Autowired
      private ProductService productService;
 
-     @GetMapping("/all")
-     public List<Product> getAllProducts() {
-         return productService.getAllProducts();
-     }
-
-     @PostMapping("/create")
-     public Product createProduct(@RequestBody Product product) {
-         return productService.createProduct(product);
-     }
+//     @GetMapping("/all")
+//     public List<Product> getAllProducts() {
+//         return productService.getAllProducts();
+//     }
+//
+//     @PostMapping("/create")
+//     public Product createProduct(@RequestBody Product product) {
+//         return productService.createProduct(product);
+//     }
 }

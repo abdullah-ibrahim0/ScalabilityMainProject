@@ -41,9 +41,10 @@ services:
     environment:
       - SERVER_PORT=8080
       - SEARCH_SERVICE_URL=http://search-service:8081
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/userservice
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/userService
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=1234
+      - REDIS_HOST=redis
     depends_on:
       - redis
       - rabbitmq
@@ -59,9 +60,6 @@ services:
       - SERVER_PORT=8081
       - REDIS_HOST=redis
       - RABBITMQ_HOST=rabbitmq
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/userservice
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=1234
     depends_on:
       - redis
       - rabbitmq

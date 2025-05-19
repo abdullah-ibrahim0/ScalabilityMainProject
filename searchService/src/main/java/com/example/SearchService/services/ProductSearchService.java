@@ -1,7 +1,7 @@
 package com.example.SearchService.services;
 
 import com.example.SearchService.models.Product;
-import com.example.SearchService.repositories.ProductRepository;
+//import com.example.SearchService.repositories.ProductRepository;
 import com.example.SearchService.services.command.CategoryFilter;
 import com.example.SearchService.services.command.FilterCommand;
 import com.example.SearchService.services.command.NameFilter;
@@ -19,8 +19,8 @@ import java.util.List;
 @Service
 public class ProductSearchService {
 
-    @Autowired
-    private ProductRepository productRepository;
+//    @Autowired
+//    private ProductRepository productRepository;
 
     @Autowired
     private RedisTemplate<String, List<Product>> redisTemplate;

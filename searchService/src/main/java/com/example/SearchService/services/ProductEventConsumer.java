@@ -3,7 +3,7 @@ package com.example.SearchService.services;
 import com.example.SearchService.config.RabbitMQConfig;
 import com.example.SearchService.dto.ProductDTO;
 import com.example.SearchService.models.Product;
-import com.example.SearchService.repositories.ProductRepository;
+//import com.example.SearchService.repositories.ProductRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

@@ -1,18 +1,18 @@
 package com.example.SearchService.models;
 
 import com.example.SearchService.enums.ProductCategory;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.Id;
+//import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "products") // optional
+//@Entity
+//@Table(name = "products") // optional
 public class Product {
 
-    @Id
+//    @Id
     private Long id;                     // product ID (auto-incremented by merchant)
 
     private Long merchantId;             // reference to Merchant (no FK needed here)

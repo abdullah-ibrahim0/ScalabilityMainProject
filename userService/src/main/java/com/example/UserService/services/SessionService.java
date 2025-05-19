@@ -26,6 +26,7 @@ public class SessionService {
     }
 
     public void saveSession(String token, Long userId) {
+        System.out.println("Saving session: " + token + " for userId: " + userId);
         redisTemplate.opsForValue().set(token, userId);
     }
 
