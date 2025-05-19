@@ -1,10 +1,13 @@
 package com.merchant.merchant_service.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.merchant.merchant_service.enums.MerchantType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class MerchantCreateDTO {
 

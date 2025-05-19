@@ -48,6 +48,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=1234
       - REDIS_HOST=redis
+      - RABBITMQ_HOST=rabbitmq
     depends_on:
       - redis
       - rabbitmq
@@ -92,14 +93,16 @@ services:
       context: ./transaction-service
     container_name: transaction-service
     ports:
-      - "8084:8084"
+      - "8083:8083"
     environment:
-      - SERVER_PORT=8084
+      - SERVER_PORT=8083
       - REDIS_HOST=redis
       - RABBITMQ_HOST=rabbitmq
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/merchant_db
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/transactionsService
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=1234
+      - APP_DOMAIN_URL=http://transaction-service:8083
+      - USER_SERVICE_URL=http://user-service:8081
     depends_on:
       - postgres
       - rabbitmq
