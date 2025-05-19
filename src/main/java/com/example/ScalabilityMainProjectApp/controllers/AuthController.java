@@ -82,6 +82,21 @@ public class AuthController {
         }
     }
 
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(
+            @RequestParam String method,     // "basic", "google", etc.
+            @RequestParam String identifier, // email or token
+            @RequestParam String secret      // password or unused
+    ) {
+        try {
+            String token = loginContext.login(method, identifier, secret);
+            return ResponseEntity.ok("Login successful. Token: " + token);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 //    @PostMapping("/login")
 //    public ResponseEntity<?> login(@RequestParam String email, @RequestParam String password) {
 //        User optionalUser = userRepository.findByEmail(email);
