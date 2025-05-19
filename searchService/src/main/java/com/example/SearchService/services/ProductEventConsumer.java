@@ -31,6 +31,7 @@ public class ProductEventConsumer {
         product.setMerchantId(dto.getMerchantId());
         product.setDiscount(dto.getDiscount());
         product.setStock(dto.getStock());
+        System.out.println(dto.getStock() + " PRODUCT STOCK  " + product.getStock());
         return product;
     }
 

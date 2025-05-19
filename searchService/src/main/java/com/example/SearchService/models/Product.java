@@ -19,7 +19,7 @@ public class Product {
     private String name;                 // required, max 150
     private String description;          // optional
     private BigDecimal price;            // decimal(10, 2)
-    private Integer stock = 0;           // default 0
+    private Integer stock;           // default 0
     private ProductCategory category;             // optional, max 50
 
     private Integer discount = 0; // default 0
