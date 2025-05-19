@@ -6,6 +6,12 @@ For further reference, please consider the following sections:
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/3.4.5/maven-plugin)
 * [Create an OCI image](https://docs.spring.io/spring-boot/3.4.5/maven-plugin/build-image.html)
+* [Spring Data Reactive Redis](https://docs.spring.io/spring-boot/3.4.5/reference/data/nosql.html#data.nosql.redis)
+
+### Guides
+The following guides illustrate how to use some features concretely:
+
+* [Messaging with Redis](https://spring.io/guides/gs/messaging-redis/)
 
 ### Maven Parent overrides
 
