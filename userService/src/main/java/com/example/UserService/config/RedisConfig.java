@@ -19,7 +19,7 @@ public class RedisConfig {
         return new LettuceConnectionFactory(host, port);
     }
 
-    @Bean
+    @Bean(name = "sessionRedisTemplate")
     public RedisTemplate<String, Long> redisTemplate(RedisConnectionFactory connectionFactory) {
         RedisTemplate<String, Long> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory);
@@ -28,7 +28,7 @@ public class RedisConfig {
         template.afterPropertiesSet();
 
         // Inject the RedisTemplate into your singleton SessionService
-        SessionService.setRedisTemplate(template);
+        SessionService.getInstance().setRedisTemplate(template);
 
         return template;
     }

@@ -1,11 +1,17 @@
 package com.example.UserService.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
 
 public class SessionService {
 
     private static SessionService instance;
-    private static RedisTemplate<String, Long> redisTemplate;
+
+    @Qualifier("sessionRedisTemplate")
+    @Autowired
+    private RedisTemplate<String, Long> redisTemplate;
 
     private SessionService() {}
 
@@ -21,8 +27,8 @@ public class SessionService {
     }
 
     // Setter for RedisTemplate — to be wired manually from Spring config
-    public static void setRedisTemplate(RedisTemplate<String, Long> template) {
-        redisTemplate = template;
+    public void setRedisTemplate(RedisTemplate<String, Long> template) {
+        this.redisTemplate = template;
     }
 
     public void saveSession(String token, Long userId) {

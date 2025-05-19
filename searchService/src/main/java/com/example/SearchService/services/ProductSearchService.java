@@ -8,6 +8,7 @@ import com.example.SearchService.services.command.NameFilter;
 import com.example.SearchService.services.strategy.SortStrategy;
 import com.example.SearchService.services.strategy.SortStrategyFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class ProductSearchService {
 //    private ProductRepository productRepository;
 
     @Autowired
+    @Qualifier("productRedisTemplate")
     private RedisTemplate<String, List<Product>> redisTemplate;
 
     @Autowired

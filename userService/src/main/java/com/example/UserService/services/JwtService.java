@@ -12,7 +12,7 @@ import java.util.Date;
 public class JwtService {
 
     // Minimum 256-bit key (32+ characters)
-    private static final String SECRET_KEY = "my_super_secret_key_12345678901234567890";
+    private static final String SECRET_KEY = "vbKClciyrKxcXbHvs6+c9UIwOqfOjy0JIqjJy2yUuO0=";
 
     private final Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
 
