@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: merchant-service
+          uri: http://merchant-service:8080
+          predicates:
+            - Path=/merchant/**
+
+        - id: search-service
+          uri: http://search-service:8080
+          predicates:
+            - Path=/search/**
+
+        - id: transaction-service
+          uri: http://transaction-service:8080
+          predicates:
+            - Path=/transaction/**
+
+        - id: user-service
+          uri: http://user-service:8080
+          predicates:
+            - Path=/user/**
